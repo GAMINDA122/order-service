@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -33,3 +32,6 @@ jobs:
 
       - name: Build Project
         run: ./mvnw clean package -DskipTests
+
+      - name: SonarCloud Scan
+        run: ./mvnw sonar:sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
